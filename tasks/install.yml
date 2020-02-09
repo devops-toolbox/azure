@@ -1,0 +1,27 @@
+---
+# Install azure packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ azure_packages_remove }}"
+    state: absent
+  become: true
+  when: azure_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ azure_packages_repos }}"
+    state: "{{ azure_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ azure_packages_prereq }}"
+    state: "{{ azure_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ azure_packages_install }}"
+    state: "{{ azure_packages_state }}"
+  become: true

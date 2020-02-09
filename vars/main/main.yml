@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+azure_repos_create: "{{ _azure_repos_create['all']
+  | union ( _azure_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+azure_repos_download: "{{ _azure_repos_download['all']
+  | union ( _azure_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+azure_templates_copy: "{{ _azure_templates_copy['all']
+  | union ( _azure_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+azure_services_enable: "{{ _azure_services_enable['all']
+  | union ( _azure_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+azure_selinux_enable: "{{ _azure_selinux_enable['all']
+  | union ( _azure_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+azure_packages_remove: "{{ _azure_packages_remove['all']
+  | union ( _azure_packages_remove[my_os]
+  | default([]) ) }}"
+azure_packages_repos: "{{ _azure_packages_repos['all']
+  | union ( _azure_packages_repos[my_os]
+  | default([]) ) }}"
+azure_packages_prereq: "{{ _azure_packages_prereq['all']
+  | union ( _azure_packages_prereq[my_os]
+  | default([]) ) }}"
+azure_packages_install: "{{ _azure_packages_install['all']
+  | union ( _azure_packages_install[my_os]
+  | default([]) ) }}"

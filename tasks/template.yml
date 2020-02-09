@@ -1,0 +1,10 @@
+---
+# Template configuration files for azure
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ azure_templates_copy }}"
+  when: azure_copy_templates
