@@ -8,10 +8,10 @@ azure: Azure
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.azure](https://galaxy.ansible.com/devops-toolbox.azure)
+[https://galaxy.ansible.com/devopstoolbox.azure](https://galaxy.ansible.com/devopstoolbox.azure)
 
 ```bash
-ansible-galaxy install devops-toolbox.azure
+ansible-galaxy install devopstoolbox.azure
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: azure is configured
       import_role:
-        name: devops-toolbox.azure
+        name: devopstoolbox.azure
       vars:
         azure_packages_state: present
         azure_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
